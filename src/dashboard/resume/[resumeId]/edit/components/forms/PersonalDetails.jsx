@@ -15,6 +15,16 @@ function PersonalDetails({ enableNext }) {
 
     useEffect(() => {
         console.log(params);
+        let initialData = {
+            firstName : resumeInfo?.firstName,
+            lastName : resumeInfo?.lastName,
+            jobTitle : resumeInfo?.jobTitle,
+            address : resumeInfo?.address,
+            phone : resumeInfo?.phone,
+            email : resumeInfo?.email,
+        }
+
+        setFormData(initialData);
     }, []);
 
     const handleInputChange = (e) => {
@@ -58,68 +68,68 @@ function PersonalDetails({ enableNext }) {
             <p>Get started with basic information</p>
 
             <form onSubmit={onSave}>
-                <div className="grid grid-cols-2 gap-3 mt-5">
-                    <div>
-                        <label htmlFor="firstName">First Name</label>
-                        <Input
-                            name="firstName"
-                            id="firstName"
-                            required
-                            defaultValue={resumeInfo?.firstName}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="lastName">Last Name</label>
-                        <Input
-                            name="lastName"
-                            id="firstName"
-                            required
-                            defaultValue={resumeInfo?.lastName}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="col-span-2">
-                        <label htmlFor="jobTitle">Job Title</label>
-                        <Input
-                            name="jobTitle"
-                            id="jobTitle"
-                            required
-                            defaultValue={resumeInfo?.jobTitle}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="col-span-2">
-                        <label htmlFor="address">Address</label>
-                        <Input
-                            name="address"
-                            id="address"
-                            required
-                            defaultValue={resumeInfo?.address}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="phone">Phone</label>
-                        <Input
-                            name="phone"
-                            id="phone"
-                            required
-                            defaultValue={resumeInfo?.phone}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="email">Email</label>
-                        <Input
-                            name="email"
-                            id="email"
-                            required
-                            defaultValue={resumeInfo?.email}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
+    <div className="sm:col-span-1">
+        <label htmlFor="firstName">First Name</label>
+        <Input
+            name="firstName"
+            id="firstName"
+            required
+            defaultValue={resumeInfo?.firstName}
+            onChange={handleInputChange}
+        />
+    </div>
+    <div className="sm:col-span-1">
+        <label htmlFor="lastName">Last Name</label>
+        <Input
+            name="lastName"
+            id="lastName"
+            required
+            defaultValue={resumeInfo?.lastName}
+            onChange={handleInputChange}
+        />
+    </div>
+    <div className="sm:col-span-2">
+        <label htmlFor="jobTitle">Job Title</label>
+        <Input
+            name="jobTitle"
+            id="jobTitle"
+            required
+            defaultValue={resumeInfo?.jobTitle}
+            onChange={handleInputChange}
+        />
+    </div>
+    <div className="sm:col-span-2">
+        <label htmlFor="address">Address</label>
+        <Input
+            name="address"
+            id="address"
+            required
+            defaultValue={resumeInfo?.address}
+            onChange={handleInputChange}
+        />
+    </div>
+    <div className="sm:col-span-1">
+        <label htmlFor="phone">Phone</label>
+        <Input
+            name="phone"
+            id="phone"
+            required
+            defaultValue={resumeInfo?.phone}
+            onChange={handleInputChange}
+        />
+    </div>
+    <div className="sm:col-span-1">
+        <label htmlFor="email">Email</label>
+        <Input
+            name="email"
+            id="email"
+            required
+            defaultValue={resumeInfo?.email}
+            onChange={handleInputChange}
+        />
+    </div>
+</div>
                 <div className="mt-3 flex justify-end">
                     <Button type="submit" disabled={loading}>
                         {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
